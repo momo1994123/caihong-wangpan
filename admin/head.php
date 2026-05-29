@@ -33,6 +33,9 @@
       </div><!-- /.navbar-header -->
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="../"><i class="fa fa-mail-reply"></i> 返回前台</a>
+          </li>
           <li class="<?php echo checkIfActive('index,')?>">
             <a href="./"><i class="fa fa-home"></i> 后台首页</a>
           </li>
