@@ -46,7 +46,7 @@ if($islogin==1){}else exit("<script language='javascript'>window.location.href='
 	    <form onsubmit="return searchSubmit()" method="GET" class="form-inline" id="searchToolbar">
 	        <div class="form-group">
           <label>搜索</label>
-		  <select name="type" class="form-control"><option value="1">UID</option><option value="2">第三方账号UID</option><option value="3">昵称</option><option value="4">登录IP</option></select>
+		  <select name="type" class="form-control"><option value="1">UID</option><option value="2">账号UID</option><option value="3">昵称</option><option value="4">登录IP</option></select>
 		    </div>
 			<div class="form-group" id="searchword">
 			<input type="text" class="form-control" name="kw" placeholder="搜索内容">
@@ -91,12 +91,13 @@ $(document).ready(function(){
 				field: 'openid',
 				title: '头像&昵称',
 				formatter: function(value, row, index) {
-					return '<img src="'+row.faceimg+'" alt="Avatar" width="40" class="img-circle">'+row.nickname;
+					var avatar = row.faceimg ? '<img src="'+row.faceimg+'" alt="Avatar" width="40" class="img-circle">' : '<i class="fa fa-user-circle fa-2x" style="width:40px;margin-right:7px;vertical-align:middle"></i>';
+					return avatar+row.nickname;
 				}
 			},
 			{
 				field: 'openid',
-				title: '登录方式/第三方账号UID',
+				title: '登录方式/账号UID',
 				formatter: function(value, row, index) {
 					return '<b>'+row.type+'</b><br/>'+value;
 				}

@@ -42,7 +42,7 @@ case 'iptype':
 break;
 case 'userList':
 	$sql=" 1=1";
-	$type_arr = ['qq'=>'QQ','wx'=>'微信'];
+	$type_arr = ['qq'=>'QQ','wx'=>'微信','account'=>'账号密码'];
 	if(isset($_POST['dstatus']) && $_POST['dstatus']>-1) {
 		$dstatus = intval($_POST['dstatus']);
 		$sql.=" AND `enable`={$dstatus}";
@@ -66,7 +66,7 @@ case 'userList':
 	$list = $DB->getAll("SELECT * FROM pre_user WHERE{$sql} order by uid desc limit $offset,$limit");
 	$list2 = [];
 	foreach($list as $row){
-		$row['type'] = $type_arr[$row['type']];
+		$row['type'] = isset($type_arr[$row['type']])?$type_arr[$row['type']]:$row['type'];
 		$list2[] = $row;
 	}
 

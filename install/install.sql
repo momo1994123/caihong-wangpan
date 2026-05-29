@@ -5,7 +5,7 @@ create table `pre_config` (
   PRIMARY KEY  (`k`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `pre_config` VALUES ('version', '1001');
+INSERT INTO `pre_config` VALUES ('version', '1002');
 INSERT INTO `pre_config` VALUES ('admin_user', 'admin');
 INSERT INTO `pre_config` VALUES ('admin_pwd', '123456');
 INSERT INTO `pre_config` VALUES ('blackip', '');
@@ -29,6 +29,9 @@ INSERT INTO `pre_config` VALUES ('green_check_porn', '0');
 INSERT INTO `pre_config` VALUES ('green_check_terrorism', '0');
 INSERT INTO `pre_config` VALUES ('green_label_porn', 'sexy,porn');
 INSERT INTO `pre_config` VALUES ('green_label_terrorism', 'bloody,explosion,outfit,logo,weapon,politics');
+INSERT INTO `pre_config` VALUES ('account_login', '1');
+INSERT INTO `pre_config` VALUES ('account_register', '0');
+INSERT INTO `pre_config` VALUES ('invite_code', '');
 INSERT INTO `pre_config` VALUES ('gg_file', '网站所有文件内容均由用户自行上传分享，本站严格遵守国家相关法律法规，尊重著作权、版权等第三方权利，如果当前文件侵犯了您的相关权利，请邮件反馈至@qq.com，我们将及时处理。');
 
 DROP TABLE IF EXISTS `pre_file`;
@@ -58,6 +61,7 @@ CREATE TABLE `pre_user` (
   `openid` varchar(150) NOT NULL,
   `nickname` varchar(255) NOT NULL,
   `faceimg` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `enable` tinyint(1) NOT NULL DEFAULT '1',
   `regip` varchar(20) DEFAULT NULL,
   `loginip` varchar(20) DEFAULT NULL,

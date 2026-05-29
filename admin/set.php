@@ -273,9 +273,21 @@ $(document).ready(function(){
 <div class="panel-heading"><h3 class="panel-title">用户登录设置</h3></div>
 <div class="panel-body">
   <form onsubmit="return saveSetting(this)" method="post" class="form-horizontal" role="form">
-  	<div class="form-group">
+	<div class="form-group">
 	  <label class="col-sm-3 control-label">用户登录开关</label>
 	  <div class="col-sm-9"><select class="form-control" name="userlogin" default="<?php echo $conf['userlogin']?>"><option value="0">关闭</option><option value="1">开启</option></select></div>
+	</div><br/>
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">账号密码登录</label>
+	  <div class="col-sm-9"><select class="form-control" name="account_login" default="<?php echo $conf['account_login']?>"><option value="0">关闭</option><option value="1">开启</option></select></div>
+	</div><br/>
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">邀请码注册</label>
+	  <div class="col-sm-9"><select class="form-control" name="account_register" default="<?php echo $conf['account_register']?>"><option value="0">关闭</option><option value="1">开启</option></select></div>
+	</div><br/>
+	<div class="form-group">
+	  <label class="col-sm-3 control-label">注册邀请码</label>
+	  <div class="col-sm-9"><input type="text" name="invite_code" value="<?php echo $conf['invite_code']; ?>" class="form-control" placeholder="开启邀请码注册后必填"/></div>
 	</div><br/>
 	<div class="form-group">
 	  <label class="col-sm-3 control-label">聚合登录接口地址</label>

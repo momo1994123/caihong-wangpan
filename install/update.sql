@@ -2,7 +2,6 @@ REPLACE INTO `pre_config` VALUES ('type_image', 'png|jpg|jpeg|gif|bmp|webp|ico|s
 REPLACE INTO `pre_config` VALUES ('type_audio', 'mp3|wav|ogg|m4a|flac|aac');
 REPLACE INTO `pre_config` VALUES ('type_video', 'mp4|webm|flv|f4v|mov|3gp|3gpp|avi|mpg|mpeg|wmv|mkv|ts|dat|asf|mts|m2ts|m3u8|m4v');
 REPLACE INTO `pre_config` VALUES ('filesearch', '1');
-
 ALTER TABLE `pre_file`
 ADD COLUMN `uid` int(11) unsigned NOT NULL DEFAULT '0';
 

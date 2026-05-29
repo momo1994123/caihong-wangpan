@@ -31,10 +31,18 @@ if($rs = $db->query("SELECT v FROM pre_config WHERE k='version'")){
 	$version = $rs->fetchColumn();
 }
 
-if($version<1001){
-	$sqls = file_get_contents('update.sql');
-	$sqls=explode(';', $sqls);
-	$sqls[]="REPLACE INTO `pre_config` VALUES ('version', '1001')";
+if($version<1002){
+	$sqls = [];
+	if($version<1001){
+		$sqls = array_merge($sqls, explode(';', file_get_contents('update.sql')));
+	}
+	if($version<1002){
+		$sqls[]="REPLACE INTO `pre_config` VALUES ('account_login', '1')";
+		$sqls[]="REPLACE INTO `pre_config` VALUES ('account_register', '0')";
+		$sqls[]="REPLACE INTO `pre_config` VALUES ('invite_code', '')";
+		$sqls[]="ALTER TABLE `pre_user` ADD COLUMN `password` varchar(255) DEFAULT NULL";
+	}
+	$sqls[]="REPLACE INTO `pre_config` VALUES ('version', '1002')";
 	if(!$db->query("SELECT v FROM pre_config WHERE k='syskey'")->fetchColumn()){
 		$sqls[]="REPLACE INTO `pre_config` VALUES ('syskey', '".random(32)."')";
 	}
