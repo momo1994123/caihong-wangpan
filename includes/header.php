@@ -48,6 +48,7 @@
             <?php }?>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="./admin/"><i class="fa fa-cog" aria-hidden="true"></i> 后台管理</a></li>
             <li class="<?php echo checkIfActive('mine')?>"><a href="./?m=mine"><i class="fa fa-folder-open" aria-hidden="true"></i> 我的文件</a></li>
             <?php if($conf['userlogin']){?>
               <?php if($islogin2){?>
